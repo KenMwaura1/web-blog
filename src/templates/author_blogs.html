@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container form-label-group">
+        <h2> {{ author }}'s posts </h2>
+        <div class="form-group">
+            <a href="/">
+                <button class="btn btn-success"> Blogs</button>
+            </a>
+        </div>
+        {% for blog in blogs %}
+            <h3><a href="/home/posts/{{ blog._id }}"> {{ blog.title }} </a></h3>
+            <p> {{ blog.description }}</p>
+
+            <hr>
+        {% endfor %}
+        <div class="form-group">
+            <a href="/login">
+                <button class="btn btn-primary"> Login</button>
+            </a>
+            <a href="/register">
+                <button class="btn btn-success"> Sign up</button>
+            </a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+        <h1> Hello {{ email }}</h1>
+        <h2> Welcome! </h2>
+        <div class="form-group">
+            <a href="/blogs">
+                <button class="btn btn-outline-primary"> Blogs</button>
+            </a>
+            <a href="/user/home">
+                <button class="btn rounded-pill btn-outline-success"> Home</button>
+            </a>
+        </div>
+    </div>
+{% endblock %}
