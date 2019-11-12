@@ -21,18 +21,14 @@
         {% for blog in blogs %}
             <h3><a href="/posts/{{ blog._id }}"> {{ blog.title }} </a></h3>
             <p> {{ blog.description }}</p>
-            <h5><a href="/user/author/{{ blog.author_id }} " methods="post"> {{ blog.author }} </a></h5>
+            <h5><a href="/home/author/{{ blog.author_id }}"> {{ blog.author }} </a></h5>
             <div class="form-group">
-                {% for bl in user_blogs %}
-                    {% if blog._id == bl._id %}
-                        <a href="/blogs/update/{{ bl._id }}">
-                            <button class="btn btn-primary"> Update Blog</button>
-                        </a>
-                        <a href="/blogs/del/{{ bl._id }}">
-                            <button class="btn btn-danger"> Delete</button>
-                        </a>
-                    {% endif %}
-                {% endfor %}
+                <a href="/blogs/update/{{ blog._id }}">
+                    <button class="btn btn-primary"> Update Blog</button>
+                </a>
+                <a href="/blogs/del/{{ blog._id }}">
+                    <button class="btn btn-danger"> Delete</button>
+                </a>
             </div>
             <hr>
         {% endfor %}

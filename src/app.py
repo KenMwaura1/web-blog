@@ -9,16 +9,17 @@ app = Flask(__name__)
 app.secret_key = "zoo"
 
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET', 'POST'])
 def home_template():
     blogs = Database.find(collection='blogs', query=({}))
-    if session['email'] is None:
+    if request.method == 'GET':
         return render_template("home.html", blogs=blogs)
-    else:
-        return make_response(user_home(session['email']))
+    elif request.method == 'POST':
+        if session['email'] is not None:
+            return make_response(user_home(session['email']))
 
 
-@app.route('/user/home')
+@app.route('/user/home', methods=['GET', 'POST'])
 def user_home(user=None):
     if session['email'] is not None:
         blogs = Database.find(collection='blogs', query=({}))
@@ -81,6 +82,13 @@ def user_logout(user=None):
     user = User.get_by_email(session['email'])
     user.logout()
     return make_response(home_template())
+
+
+@app.route('/user/author/<string:author_id>')
+def author_blogs(author_id):
+    user = User.get_by_id(author_id)
+    blogs = user.get_blogs()
+    return render_template('user_author_blogs.html', blogs=blogs)
 
 
 @app.route('/blogs/<string:user_id>')
