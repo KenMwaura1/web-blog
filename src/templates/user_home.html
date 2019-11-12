@@ -12,16 +12,15 @@
             <a href="/user/logout">
                 <button class="btn rounded-pill btn-danger"> Logout</button>
             </a>
-            <form class="form-group" method="post">
-                <a href="/" methods="post">
-                    <button class="btn rounded-pill btn-primary"> Blogs</button>
-                </a>
+
             </form>
         </div>
         {% for blog in blogs %}
             <h3><a href="/posts/{{ blog._id }}"> {{ blog.title }} </a></h3>
             <p> {{ blog.description }}</p>
-            <h5><a href="/user/author/{{ blog.author_id }} " methods="post"> {{ blog.author }} </a></h5>
+            <form method="post">
+                <h5><a href="/user/author/{{ blog.author_id }} "> {{ blog.author }} </a></h5>
+            </form>
             <div class="form-group">
                 {% for bl in user_blogs %}
                     {% if blog._id == bl._id %}

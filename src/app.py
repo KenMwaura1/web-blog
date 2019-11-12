@@ -84,7 +84,7 @@ def user_logout(user=None):
     return make_response(home_template())
 
 
-@app.route('/user/author/<string:author_id>')
+@app.route('/user/author/<string:author_id>', methods=['GET', 'POST'])
 def author_blogs(author_id):
     user = User.get_by_id(author_id)
     blogs = user.get_blogs()

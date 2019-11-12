@@ -12,11 +12,9 @@
             <a href="/user/logout">
                 <button class="btn rounded-pill btn-danger"> Logout</button>
             </a>
-            <form class="form-group" method="post">
-                <a href="/" methods="post">
-                    <button class="btn rounded-pill btn-primary"> Blogs</button>
-                </a>
-            </form>
+            <a href="/user/home" methods="post">
+                <button class="btn rounded-pill btn-primary"> Blogs</button>
+            </a>
         </div>
         {% for blog in blogs %}
             <h3><a href="/posts/{{ blog._id }}"> {{ blog.title }} </a></h3>
