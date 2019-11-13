@@ -7,9 +7,19 @@
                 <button class="btn btn-primary"> New Post</button>
             </a>
         </div>
-        <div class="form-group">
+        <div class=" form-group">
+            <a href="/blogs/new">
+                <button class="btn rounded-pill btn-primary"> New Blog</button>
+            </a>
+
+            <a href="/user/home" methods="post">
+                <button class="btn rounded-pill btn-primary"> Home</button>
+            </a>
             <a href="/blogs">
-                <button class="btn btn-success"> Blogs</button>
+                <button class="btn btn-success"> Your Blogs</button>
+            </a>
+            <a href="/user/logout">
+                <button class="btn rounded-pill btn-danger"> Logout</button>
             </a>
         </div>
         {% if posts|length > 0 %}
@@ -17,12 +27,21 @@
                 <h3> {{ post.title }} </h3>
                 <p> {{ post.content }}</p>
                 <p> {{ post.author }}</p>
-                <a href="/posts/update/{{ blog_id }}/{{ post._id }}">
-                    <button class="btn btn-outline-secondary"> update Post</button>
-                </a>
-                <a href="/posts/del/{{ post._id }}">
-                    <button class="btn btn-danger"> Delete Post</button>
-                </a>
+                <div class="form-group">
+                    {% for user_post in user_posts %}
+                        {% if  post._id== user_post._id %}
+                            <a href="/posts/update/{{ blog_id }}/{{ post._id }}">
+                                <button class="btn btn-outline-secondary"> Update Blog</button>
+                            </a>
+                            <a href="/posts/del/{{ blog_id }}/{{ post._id }}">
+                                <button class="btn btn-outline-danger"> Delete</button>
+                            </a>
+                        {% endif %}
+
+
+                    {% endfor %}
+
+                </div>
                 <hr>
             {% endfor %}
         {% else %}

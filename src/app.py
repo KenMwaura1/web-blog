@@ -85,10 +85,12 @@ def user_logout(user=None):
 
 
 @app.route('/user/author/<string:author_id>', methods=['GET', 'POST'])
-def author_blogs(author_id):
+def author_blogs(author_id, ):
     user = User.get_by_id(author_id)
+    user_email = User.get_by_email(session['email'])
+    user_blogs = user_email.get_blogs()
     blogs = user.get_blogs()
-    return render_template('user_author_blogs.html', blogs=blogs)
+    return render_template('user_author_blogs.html', blogs=blogs, user_blogs=user_blogs)
 
 
 @app.route('/blogs/<string:user_id>')
@@ -119,7 +121,15 @@ def create_new_blog():
 def blog_posts(blog_id):
     blog = Blog.from_mongo(blog_id)
     posts = blog.get_posts()
-    return render_template('posts.html', posts=posts, blog_title=blog.title, blog_id=blog._id)
+    user_email = User.get_by_email(session['email'])
+    user_blogs = user_email.get_blogs()
+    user_posts = Post.from_blog(blog_id)
+    if blog.author == session['email']:
+        user_posts = blog.get_posts()
+        return render_template('posts.html', posts=posts, blog_title=blog.title, blog_id=blog._id,
+                               user_posts=user_posts, user_blogs=user_blogs)
+    else:
+        return render_template('posts.html', posts=posts, blog_title=blog.title, blog_id=blog._id)
 
 
 @app.route('/blogs/update/<string:blog_id>', methods=['GET', 'POST'])

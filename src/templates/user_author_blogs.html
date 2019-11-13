@@ -9,11 +9,15 @@
                 <button class="btn rounded-pill btn-primary"> New Blog</button>
             </a>
 
+
+            <a href="/user/home" methods="post">
+                <button class="btn rounded-pill btn-primary"> Home</button>
+            </a>
+            <a href="/blogs">
+                <button class="btn btn-success"> Your Blogs</button>
+            </a>
             <a href="/user/logout">
                 <button class="btn rounded-pill btn-danger"> Logout</button>
-            </a>
-            <a href="/user/home" methods="post">
-                <button class="btn rounded-pill btn-primary"> Blogs</button>
             </a>
         </div>
         {% for blog in blogs %}
@@ -21,12 +25,16 @@
             <p> {{ blog.description }}</p>
             <h5><a href="/home/author/{{ blog.author_id }}"> {{ blog.author }} </a></h5>
             <div class="form-group">
-                <a href="/blogs/update/{{ blog._id }}">
-                    <button class="btn btn-primary"> Update Blog</button>
-                </a>
-                <a href="/blogs/del/{{ blog._id }}">
-                    <button class="btn btn-danger"> Delete</button>
-                </a>
+                {% for bl in user_blogs %}
+                    {% if blog._id == bl._id %}
+                        <a href="/blogs/update/{{ blog._id }}">
+                            <button class="btn btn-primary"> Update Blog</button>
+                        </a>
+                        <a href="/blogs/del/{{ blog._id }}">
+                            <button class="btn btn-danger"> Delete</button>
+                        </a>
+                    {% endif %}
+                {% endfor %}
             </div>
             <hr>
         {% endfor %}
