@@ -11,10 +11,10 @@
 
 
             <a href="/user/home" methods="post">
-                <button class="btn rounded-pill btn-primary"> Home</button>
+                <button class="btn rounded-pill btn-teal "> Home</button>
             </a>
             <a href="/blogs">
-                <button class="btn btn-success"> Your Blogs</button>
+                <button class="btn rounded-pill btn-cyan"> Your Blogs</button>
             </a>
             <a href="/user/logout">
                 <button class="btn rounded-pill btn-danger"> Logout</button>
@@ -24,17 +24,12 @@
             <h3><a href="/posts/{{ blog._id }}"> {{ blog.title }} </a></h3>
             <p> {{ blog.description }}</p>
             <div class="form-group">
-                {% for bl in user_blogs %}
-                    {% if blog._id == bl._id %}
-                        <a href="/blogs/update/{{ blog._id }}">
-                            <button class="btn btn-primary"> Update Blog</button>
-                        </a>
-                        <a href="/blogs/del/{{ blog._id }}">
-                            <button class="btn btn-danger"> Delete</button>
-                        </a>
-                    {% endif %}
-                {% endfor %}
-
+                <a href="/blogs/update/{{ blog._id }}">
+                    <button class="btn btn-primary"> Update Blog</button>
+                </a>
+                <a href="/blogs/del/{{ blog._id }}">
+                    <button class="btn btn-danger"> Delete</button>
+                </a>
             </div>
             <hr>
         {% endfor %}

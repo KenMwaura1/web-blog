@@ -43,6 +43,15 @@ def home_author(author_id):
     return render_template('author_blogs.html', blogs=blogs, author=author)
 
 
+@app.route('/home/authors', methods=['GET', 'POST'])
+def home_all_authors():
+    if request.method == 'GET':
+        authors = Database.find(collection='users', query=({}))
+        return render_template('home_authors.html', authors=authors)
+
+
+
+
 @app.route('/login')
 def login_template():
     return render_template('login.html')
