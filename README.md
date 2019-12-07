@@ -1,7 +1,10 @@
+[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+
 **Zoo Web Blog** 
 
 This is a simple blogging web app created using Flask(server),Bootstrap(Frontend) and MongoDB as the database.
 This application is still in active development and alot still needs to be done.
+
 
 ### **Quickstart**
 
