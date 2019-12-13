@@ -1,3 +1,21 @@
 .card-comments img {
     width: 4rem;
 }
+
+#login-form {
+    margin: 25px;
+
+}
+
+#register-form {
+    margin: inherit;
+}
+
+.page-form {
+    max-width: 480px;
+}
+
+.container {
+    max-width: 480px;
+
+}
