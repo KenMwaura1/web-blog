@@ -16,6 +16,6 @@ PyYAML==5.4
 records==0.5.3
 SQLAlchemy==1.3.10
 tablib==0.14.0
-Werkzeug==0.16.0
+Werkzeug==2.2.3
 xlrd==1.2.0
 xlwt==1.3.0
