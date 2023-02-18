@@ -1,4 +1,7 @@
 /.python-version
 /mongodb/
 /bootstrap-4.3.1/
-/src/.idea/
+/src/
+.idea/
+/venv
+.env
