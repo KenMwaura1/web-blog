@@ -1,14 +1,13 @@
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
-**Zoo Web Blog** 
+**Zoo Web Blog**
 
 This is a simple blogging web app created using Flask(server),Bootstrap(Frontend) and MongoDB as the database.
 This application is still in active development and alot still needs to be done.
 
-
 ### **Quickstart**
 
-git clone https://github.com/KenMwaura1/web-blog.git
+git clone <https://github.com/KenMwaura1/web-blog.git>
 
 cd into web-blog
 
@@ -24,11 +23,10 @@ Incase your configuration is different edit the `Database.py` to modify variable
 
 Run the app by either setting the Flask env variables i.e `EXPORT FLASK_APP=app.py`
 
-OR 
+OR
 
 `python app.py`
 
 Go to localhost:5000 to see the app running.
 
 Basic api calls available via localhost:5000/posts and localhost:5000/blogs
-
